@@ -1,0 +1,56 @@
+<table width="100%" border="0">
+    <tr>
+        <td>
+            <p>
+                <h4>Cadastrados no Sistema Admin</h4>
+            </p>
+        </td>
+        <td style="width: 10%; text-align: right;">
+            <a href="/ways/cad_supadm" title="Cadastrar">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </a>
+        </td>
+    </tr>
+</table>
+
+
+<br />
+
+{{#if useradms}}
+<table class="table table-responsive table-bordered table-hover">
+    <thead>
+    </thead>
+    <tbody>
+    {{#each useradms}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td style="width: 10%; text-align: center;">
+                <a href="/ways/edi_supadm/{{this.id}}" title="Editar">
+                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                </a>
+            </td>
+            <td style="width: 10%; text-align: center;">
+                {{#if this.permission }}
+                    <a href="" title="Ativo">
+                        <img src="../../img/green.png"/>
+                    </a>
+                {{else}}
+                    <a href="" title="Inativo">
+                        <img src="../../img/red.png"/>
+                    </a>
+                {{/if}}
+            </td>
+            <td style="width: 10%; text-align: center;">
+                <a href="/ways/delete/{{this.id}}" title="Excluir" onclick="return confirm('Tem certeza que deseja deletar este registro?')">
+                    <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                </a>
+
+
+
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+{{/if}}
+
